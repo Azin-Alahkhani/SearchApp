@@ -1,13 +1,18 @@
+// react
 import React,{ useEffect, useState }  from 'react'
 import {useDebounce} from 'use-debounce'
 
+// components
+import { Links } from './Links';
+
+
 export const Search = (props) => {
     // const { setSearchTerm } = useStateContext();
-  const [text, setText] = useState('Elon Musk');
+  const [text, setText] = useState('');
   const [debouncedValue] = useDebounce(text, 300);
 
   useEffect(() => {
-    // if (debouncedValue) setSearchTerm(debouncedValue);
+    //  if (debouncedValue) setSearchTerm(debouncedValue);
   }, [debouncedValue]);
 
   return (
@@ -24,7 +29,7 @@ export const Search = (props) => {
           x
         </button>
       )}
-      {/* <Links /> */}
+      <Links />
     </div>
   )
 }
