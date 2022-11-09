@@ -4,15 +4,15 @@ import {useDebounce} from 'use-debounce'
 
 // components
 import { Links } from './Links';
-
+import { useStateContext } from './Provider';
 
 export const Search = (props) => {
-    // const { setSearchTerm } = useStateContext();
+  const  setSearchTerm  = useStateContext();
   const [text, setText] = useState('');
   const [debouncedValue] = useDebounce(text, 300);
 
   useEffect(() => {
-    //  if (debouncedValue) setSearchTerm(debouncedValue);
+      if (debouncedValue) setSearchTerm(debouncedValue);
   }, [debouncedValue]);
 
   return (
